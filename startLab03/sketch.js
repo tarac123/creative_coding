@@ -17,7 +17,7 @@ function setup() {
     charts.push(new BarChart({
         data: cleanedData,
         xValue: "Age_Group",
-        yValue: "Female",
+        yValue: "Male",
         // chartHeight: 400,
         // chartWidth: 400,
         // barWidth: 25,
