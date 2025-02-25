@@ -4,15 +4,15 @@ let charts = [];
 
 function preload() {
     data = loadTable('data/csv/Features.csv', 'csv', 'header', function() {
-        console.log('CSV file loaded successfully');
-        console.log(data.columns);  // Check available columns
+        console.log('CSV file loaded');
+        
     }, function(error) {
         console.error('Error loading CSV:', error);
     });
 }
 
 function setup() {
-    createCanvas(1500, 1500);
+    createCanvas(1800, 2400);
     angleMode(DEGREES);
     noLoop();
 
@@ -52,13 +52,19 @@ function setup() {
         yValues: ["Duration", "Streams"],
     }));
 
+    charts.push(new HorizontalBarChart({
+        data: cleanedData,
+        xValue: "Streams",
+        yValue: "Name",
+    }));
+
 }
 
 function draw() {
     background(255);
 
-    // Render the first chart (BarChart)
-    if (charts.length > 0) {
+    // Render the BarChart
+    if (charts.length > 0) { 
         let barChart = charts[0];
         barChart.renderAxis();
         barChart.renderBars();
@@ -67,7 +73,7 @@ function draw() {
         barChart.renderTitle("Top 15 Most Streamed Songs of All Time");
         barChart.renderAxisTitles("Song Title", "Total Streams (in Billions)");
 
-        // Render the second chart (StackedBarChart)
+        // Render the StackedBarChart
         let stackedBarChart = charts[1];  
         stackedBarChart.renderAxis();     // Call the renderAxis method
         stackedBarChart.renderBars();     // Call the renderBars method
@@ -84,8 +90,17 @@ function draw() {
         clusterBarChart.renderTicks();    // Call the renderTicks method
         clusterBarChart.renderTitle("Top 15 most streamed songs and their Duration/Streams");
         clusterBarChart.renderAxisTitles("Song Title", "Duration/Streams");
-        clusterBarChart.renderLegend(["Duration", "Streams"], clusterBarChart.barColours);
+        clusterBarChart.renderLegend(clusterBarChart.barColours);
 
+        let horizontalBarChart = charts[3];
+        horizontalBarChart.renderAxis();
+        horizontalBarChart.renderBars();
+        horizontalBarChart.renderLabels();
+        horizontalBarChart.renderTicks();
+        horizontalBarChart.renderTitle("Top 15 Most Streamed Songs of All Time");
+        horizontalBarChart.renderAxisTitles("Song Title", "Total Streams (in Billions)");
+
+    
     } else {
         console.error("No charts found.");
     }

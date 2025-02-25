@@ -3,18 +3,18 @@ class ClusterBarChart {
         this.data = obj.data;
         this.xValue = obj.xValue;
         this.yValues = obj.yValues;
-        this.chartHeight = obj.chartHeight || 500;
-        this.chartWidth = obj.chartWidth || 500;
-        this.barWidth = obj.barWidth || 30;
+        this.chartHeight = obj.chartHeight || 400;
+        this.chartWidth = obj.chartWidth || 1000;
+        this.barWidth = obj.barWidth || 25;
         this.margin = obj.margin || 10;
         this.axisThickness = obj.axisThickness || 1;
-        this.chartPosX = obj.chartPosX || 800;
-        this.chartPosY = obj.chartPosY || 1300;
+        this.chartPosX = obj.chartPosX || 100;
+        this.chartPosY = obj.chartPosY || 1500;
 
         
 
         // Sets colors for the bars
-        this.barColours = obj.barColours || [color(239, 149, 252), color(140, 142, 250)]; // colors for different categories
+        this.barColours = obj.barColours || [color(162, 194, 245), color(36, 114, 240)]; // colors for different categories
         this.axisTextColour = obj.axisTextColour || color(0);  // black for axis text
 
         // Calculate the gap between clusters
@@ -86,15 +86,15 @@ class ClusterBarChart {
         textAlign(LEFT);
         textSize(12);
 
-        for (let i = 0; i < this.data.length; i++) {
-            // Position labels in the center of each cluster
-            const clusterWidth = this.barWidth * this.yValues.length;
+        for (let i = 0; i < this.data.length; i++) { // loops through index of dataset
+            
+            const clusterWidth = this.barWidth * this.yValues.length; //width of one bar multiplied by the amounnt of bars in each cluster 
             let xPos = this.margin + (clusterWidth + this.gap) * i + clusterWidth / 2;
             
             push();
-            translate(xPos, 15); // inserts below the axis
+            translate(xPos, 15); // inserts below the axis in the middle of the cluster
             rotate(90); 
-            text(this.data[i][this.xValue], 0, 0);
+            text(this.data[i][this.xValue], 0, 0); // prints the value on the top of each cluster bar
             pop();
         }
 
@@ -137,7 +137,7 @@ class ClusterBarChart {
         textAlign(CENTER, CENTER);
         textStyle(BOLD);
         // X-Axis Title
-        text(xTitle, this.chartPosX + this.chartWidth / 2, this.chartPosY + 160);
+        text(xTitle, this.chartPosX + this.chartWidth / 2, this.chartPosY + 100);
 
         // Y-Axis Title
         push();
