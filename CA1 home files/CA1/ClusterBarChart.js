@@ -9,7 +9,7 @@ class ClusterBarChart {
         this.margin = obj.margin || 10;
         this.axisThickness = obj.axisThickness || 1;
         this.chartPosX = obj.chartPosX || 100;
-        this.chartPosY = obj.chartPosY || 1500;
+        this.chartPosY = obj.chartPosY || 1350;
 
         
 
@@ -152,11 +152,12 @@ class ClusterBarChart {
 
     renderTitle(title) {
         push();
-        textSize(16);
+        textSize(18);
         textStyle(BOLD);
-        textAlign(CENTER, CENTER);
+        textFont("Roboto");
+        textAlign(RIGHT, RIGHT);
         fill(0);
-        text(title, this.chartPosX + this.chartWidth / 2, this.chartPosY - this.chartHeight - 60); 
+        text(title, this.chartPosX + this.chartWidth / 2, this.chartPosY - this.chartHeight - 40); 
         pop();
     }
     

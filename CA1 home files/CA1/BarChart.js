@@ -22,7 +22,7 @@ class BarChart {
         this.scaler = this.maxValue > 0 ? this.chartHeight / this.maxValue : 1;  // Set the scale based on the max value // ? shortcut for if else statement
         
         this.axisColour = color(0, 0, 0);
-        this.barColor = color(128, 235, 52, 100);
+        this.barColor = color(36, 114, 240);
         this.axisTextColour = color(0);
 
         this.numTicks = 15;
@@ -116,7 +116,7 @@ class BarChart {
         textAlign(CENTER, CENTER);
         textStyle(BOLD);
         // X-Axis Title
-        text(xTitle, this.chartPosX + this.chartWidth / 2, this.chartPosY + 160);
+        text(xTitle, this.chartPosX + this.chartWidth / 2, this.chartPosY + 90);
 
         // Y-Axis Title
         push();
@@ -133,6 +133,7 @@ class BarChart {
         push();
         textSize(16);
         textStyle(BOLD);
+        textFont("Roboto");
         textAlign(CENTER, CENTER);
         fill(0);
         text(title, this.chartPosX + this.chartWidth / 2, this.chartPosY - this.chartHeight - 60); 

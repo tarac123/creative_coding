@@ -13,7 +13,7 @@ class StackedBarChart {
         
 
         // Set colors for the bars
-        this.barColours = obj.barColours || [color(239, 149, 252), color(140, 142, 250)]; // colors for stacking
+        this.barColours = obj.barColours || [color(162, 194, 245), color(36, 114, 240)]; // colors for stacking
         this.axisTextColour = obj.axisTextColour || color(0);  // black for axis text
 
         // Calculates the gap 
@@ -127,7 +127,7 @@ class StackedBarChart {
         textAlign(CENTER, CENTER);
         textStyle(BOLD);
         // X-Axis Title
-        text(xTitle, this.chartPosX + this.chartWidth / 2, this.chartPosY + 160);
+        text(xTitle, this.chartPosX + this.chartWidth / 2, this.chartPosY + 140);
 
         // Y-Axis Title
         push();
@@ -144,6 +144,7 @@ class StackedBarChart {
         push();
         textSize(16);
         textStyle(BOLD);
+        textFont("Roboto");
         textAlign(CENTER, CENTER);
         fill(0);
         text(title, this.chartPosX + this.chartWidth / 2, this.chartPosY - this.chartHeight - 60); 

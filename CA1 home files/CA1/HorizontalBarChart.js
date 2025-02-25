@@ -22,7 +22,7 @@ class HorizontalBarChart {
         this.scaler = this.maxValue > 0 ? this.chartWidth / this.maxValue : 1;  // Set the scale based on the max value // ? shortcut for if else statement
         
         this.axisColour = color(0, 0, 0);
-        this.barColor = color(128, 235, 52, 100);
+        this.barColor = color(36, 114, 240);
         this.axisTextColour = color(0);
 
         this.numTicks = 10;
@@ -45,7 +45,6 @@ class HorizontalBarChart {
             
             rect(0, -yPos, barWidth, this.barHeight); // Draw horizontal bars
         }
-        console.log(this.numericData);
         pop();
         pop();
     }
@@ -142,7 +141,8 @@ class HorizontalBarChart {
         push();
         textSize(16);
         textStyle(BOLD);
-        textAlign(CENTER, CENTER);
+        textFont("Roboto");
+        textAlign(RIGHT, RIGHT);
         fill(0);
         text(title, this.chartPosX + this.chartWidth / 2, this.chartPosY - this.chartHeight - 60); 
         pop();
